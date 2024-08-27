@@ -3,7 +3,7 @@ class Solution:
         if not digits:
             return []
 
-        digit_to_letters = {
+        letters = {
             '2': 'abc',
             '3': 'def',
             '4': 'ghi',
@@ -13,21 +13,17 @@ class Solution:
             '8': 'tuv',
             '9': 'wxyz'
         }
-        
 
         def backtrack(index, path):
-            if index == len(digits):
-                combinations.append("".join(path))
+            if len(path) == len(digits):
+                answer.append("".join(path))
                 return
-            
-            current_digit = digits[index]
-            possible_letters = digit_to_letters[current_digit]
-            
-            for letter in possible_letters:
+
+            for letter in letters[digits[index]]:
                 path.append(letter)
                 backtrack(index + 1, path)
                 path.pop()
-        
-        combinations = []
+                
+        answer = []
         backtrack(0, [])
-        return combinations
+        return answer
