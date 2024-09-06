@@ -2,7 +2,7 @@ from typing import List
 
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        nums.sort()  # Sort the array
+        nums.sort()  
         answer = []
         
         for i in range(len(nums) - 2):
