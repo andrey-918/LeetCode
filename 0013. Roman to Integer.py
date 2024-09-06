@@ -9,7 +9,7 @@ class Solution:
             'D': 500,
             'M': 1000,
         }
-        noname = {
+        prevVal = {
             'V': 'I',
             'X': 'I',
             'L': 'X',
@@ -21,7 +21,7 @@ class Solution:
         res = 0
         prev_sym = ''
         for symbol in reversed(s):
-            if prev_sym and noname[prev_sym] == symbol:
+            if prev_sym and prevVal[prev_sym] == symbol:
                 res -= val[symbol]
             else:
                 res += val[symbol]
